@@ -31,10 +31,8 @@ function preload()
   sad = loadAnimation("sad_1.png","sad_2.png","sad_3.png");
   
   blink.playing = true;
-  eat.playing = true;
-  sad.playing = true;
-  sad.looping= false;
-  eat.looping = false; 
+  //tocar animação eat, sad
+  //não repetir animação
 }
 
 function setup() {
@@ -50,14 +48,14 @@ function setup() {
   button.mouseClicked(drop);
   
 
+  //velocidade de reprodução da animação eat, sad
   blink.frameDelay = 20;
-  eat.frameDelay = 20;
+  
   bunny = createSprite(230,620,100,100);
   bunny.scale = 0.2;
 
   bunny.addAnimation('blinking',blink);
-  bunny.addAnimation('eating',eat);
-  bunny.addAnimation('crying',sad);
+  //add animação eat, sad
   bunny.changeAnimation('blinking');
   
   rope = new Rope(7,{x:245,y:30});
@@ -78,7 +76,7 @@ function draw()
 {
   background(51);
   image(bg_img,width/2,height/2,490,690);
-
+  //tratativa para nao bugar a imagem/jogo
   image(food,fruit.position.x,fruit.position.y,70,70);
 
   rope.show();
@@ -94,4 +92,8 @@ function drop()
   fruit_con.detach();
   fruit_con = null; 
 }
+
+function collide(){
+  
+}  
 
